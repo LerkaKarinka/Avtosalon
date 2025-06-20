@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" style="margin-top: 4.5rem;">
+  <h2>Редактирование клиента</h2>
+  <input type="hidden" id="id-input" name="id" value="{{klient.id}}">
+  <div class="form-group">
+    <label for="klientname">ФИО</label>
+    <input type="text" class="form-control" id="klientname-input" name="klientname" placeholder="Ефремов Дмитрий Иванович" value="{{klient.klientname}}">
+  </div>
+  <div class="form-group">
+    <label for="number_phone">Номер телефона</label>
+    <input type="text" class="form-control" id="number_phone-input" name="number_phone" placeholder="88888888888"  value="{{klient.number_phone}}">
+  </div>
+  <div class="form-group">
+    <label for="VIP_status">VIP статус</label>
+    <input type="text" class="form-control" id="VIP_status-input" name="VIP_status" placeholder="Активен"  value="{{klient.VIP_status}}">
+  </div>
+  <button type="submit" class="btn btn-success mt-2">Изменить</button>
+</form>
+{% endblock %}

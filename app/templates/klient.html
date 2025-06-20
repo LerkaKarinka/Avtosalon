@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Клиенты{% endblock %}
+{% block content %}
+<section style="margin-top: 4.5rem;">
+    <h2>Клиенты</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Фото</th>
+                <th>Ф.И.О.</th>
+                <th>Номер телефона</th>
+                <th>VIP статус</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for klient in klients %}
+            <tr>
+                <td>{{ klient.id }}</td>
+                <td>
+                    <img src="/klient/photo/{{ klient.id }}" style="width: 200px; height: 200px; object-fit: cover;">
+                </td>
+                <td>{{ klient.klientname }} </td>
+                <td>{{ klient.number_phone }} </td>
+                <td>{{ klient.VIP_status }}</td>
+                <td>
+                    <br><a class="btn btn-outline-primary" href="/klient/photo-edit/{{klient.id}}" style="margin-bottom: 10px;">Изменить фото</a>
+                    <br><a class="btn btn-outline-warning" href="/klient/edit/{{klient.id}}" style="margin-bottom: 10px;">Изменить</a>
+                    <br><a class="btn btn-outline-danger" href="/klient/del/{{klient.id}}" style="margin-bottom: 10px;">Удалить</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="/klient/add">Добавить</a>
+</section>
+{% endblock %}

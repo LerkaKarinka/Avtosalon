@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" style="margin-top: 4.5rem;">
+  <h2>Добавление клиента</h2>
+  <div class="form-group">
+    <label for="klientname">ФИО</label>
+    <input type="text" class="form-control" id="klientname-input" name="klientname" placeholder="Ефремов Дмитрий Иванович">
+  </div>
+  <div class="form-group">
+    <label for="number_phone">Номер телефона</label>
+    <input type="text" class="form-control" id="number_phone-input" name="number_phone" placeholder="88888888888">
+  </div>
+  <div class="form-group">
+    <label for="VIP_status">VIP статус</label>
+    <input type="text" class="form-control" id="VIP_status-input" name="VIP_status" placeholder="Активен/Не активен">
+  </div>
+  <button type="submit" class="btn btn-success mt-2">Добавить</button>
+</form>
+{% endblock %}

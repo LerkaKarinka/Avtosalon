@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" style="margin-top: 4.5rem;">
+  <h2>Добавление менеджера</h2>
+  <div class="form-group">
+    <label for="menengername">Логин</label>
+    <input type="text" class="form-control" id="menengername-input" name="menengername" placeholder="Dimas">
+  </div>
+  <div class="form-group mt-2">
+    <label for="password-input">Пароль</label>
+    <input type="password" class="form-control" id="password-input" name="password">
+  </div>
+  <button type="submit" class="btn btn-success mt-2">Добавить</button>
+</form>
+{% endblock %}

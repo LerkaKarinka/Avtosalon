@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<style>
+    body {
+      background-image: url("/static/imgs/fon.png");
+      background-size: cover; /* чтобы изображение покрывало весь фон */
+      background-position: center; /* центрировать изображение */
+      background-repeat: no-repeat; /* не повторять изображение */
+    }
+  </style>
+<div class="container d-flex justify-content-center align-items-start vh-100 pt-5">
+        <div class="container d-flex justify-content-center align-items-start vh-60 pt-15" style="padding-top: 80px;">
+            <div class="d-flex flex-column" style="max-width: 3000px;">
+                <h1 class="text-center mt-2" style="color: rgb(43, 255, 0);"><b>Автосалон ЧКиД</b></h1>
+                <h2 class="text-center mt-2" style="color: rgba(64, 209, 19, 0.897);"><i>Наш слоган: ЧКиД — Черепанова, Куликова и Димка: ваш путь к качеству и надежности!</i></h2>
+                <p class="text-justify"></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
