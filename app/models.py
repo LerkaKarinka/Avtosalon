@@ -6,6 +6,7 @@ class Klient(db.Model):
     klientname = db.Column(db.String(64), nullable=False)
     number_phone = db.Column(db.String(120), nullable=False)
     VIP_status = db.Column(db.String(64), nullable=False)
+    telegram_id = db.Column(db.String(60), nullable=True)
 
     def __repr__(self):
         return f'<Klient {self.klientname}>'
@@ -15,7 +16,7 @@ class Menenger(db.Model,UserMixin):
     menengername = db.Column(db.String(64), nullable=False)
     number_phone = db.Column(db.String(120), nullable=False)
     password = db.Column(db.String(120), nullable=False)
-
+    
 
     def __repr__(self):
         return f'<Menenger {self.menengername}>'
