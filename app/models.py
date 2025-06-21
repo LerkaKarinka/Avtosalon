@@ -25,8 +25,8 @@ class Menenger(db.Model,UserMixin):
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String(64), nullable=False)
-    data = db.Column(db.DATE, nullable=False)
-    time = db.Column(db.TIME, nullable=False)
+    data = db.Column(db.String(64), nullable=False)
+    datetime = db.Column(db.DateTime, nullable=False)
     
     def __repr__(self):
         return f'<Klient {self.klientname}>'

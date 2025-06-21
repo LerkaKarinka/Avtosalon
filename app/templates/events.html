@@ -8,15 +8,17 @@
             <tr>
                 <th>ID</th>
                 <th>Тип</th>
-                <th>Дата и время</th>
+                <th>Дата</th>
+                <th>Время</th>
             </tr>
         </thead>
         <tbody>
             {% for event in events %}
             <tr>
                 <td>{{ event.id }}</td>
-                <td>{{ event.name }}</td>
-                <td>{{ event.description }}</td>
+                <td>{{ event.type }}</td>
+                <td>{{ event.data }}</td>
+                <td>{{ event.datetime }}</td>
             </tr>
             {% endfor %}
         </tbody>
