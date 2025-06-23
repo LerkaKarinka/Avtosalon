@@ -6,7 +6,7 @@ from .models import Menenger
 from flask_login import login_user, login_required, logout_user, current_user
 
 # Загрузка .env должна происходить до создания приложения
-load_dotenv()
+load_dotenv(override=True)
 
 def create_app(config_class=DevelopmentConfig):
     app = Flask(__name__)

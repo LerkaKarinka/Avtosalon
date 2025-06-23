@@ -7,6 +7,8 @@ class Klient(db.Model):
     number_phone = db.Column(db.String(120), nullable=False)
     VIP_status = db.Column(db.String(64), nullable=False)
     telegram_id = db.Column(db.String(60), nullable=True)
+    car = db.Column(db.String(60), nullable=False)
+    
 
     def __repr__(self):
         return f'<Klient {self.klientname}>'
