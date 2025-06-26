@@ -49,12 +49,11 @@ def init_routes(app):
     @app.route('/menenger/del/<id>', methods=["GET", "POST"])
     @login_required
     def menenger_del(id):
+        menenger = db.get_or_404(Menenger, id)
         if request.method == "GET":
-            menenger = db.get_or_404(Menenger, id)
             return render_template('menenger/del.html', current="menengers", menenger=menenger)
-        if request.method == "POST":
-            user = db.get_or_404(Menenger, request.form["id"])
-            db.session.delete(user)
+        elif request.method == "POST":
+            db.session.delete(menenger)
             db.session.commit()
             return redirect("/menengers")
 
