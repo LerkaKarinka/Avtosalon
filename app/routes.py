@@ -28,7 +28,6 @@ def init_routes(app):
         if request.method == "POST":
             user = Menenger()
             user.menengername = request.form["menengername"]
-            user.number_phone = request.form["number_phone"]
             user.password = request.form["password"]
             db.session.add(user)
             db.session.commit()
@@ -43,7 +42,6 @@ def init_routes(app):
         if request.method == "POST":
             user = db.get_or_404(Menenger, request.form["id"])
             user.menengername = request.form["menengername"]
-            user.number_phone = request.form["number_phone"]
             user.password = request.form["password"]
             db.session.commit()
             return redirect("/menengers")

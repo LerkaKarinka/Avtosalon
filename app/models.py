@@ -16,7 +16,6 @@ class Klient(db.Model):
 class Menenger(db.Model,UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     menengername = db.Column(db.String(64), nullable=False)
-    number_phone = db.Column(db.String(120), nullable=False)
     password = db.Column(db.String(120), nullable=False)
     
 
