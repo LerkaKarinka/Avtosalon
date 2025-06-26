@@ -181,6 +181,26 @@ def init_routes(app):
         except requests.exceptions.ConnectionError as e:
             print(f"Ошибка подключения к Telegram Bot")
 
+    def send_event_telegram(event):
+        klients = Klient.query.all()
+        msg = f"{event.data}\n{event.datetime}"
+        url = f"http://{app.config['TELEGRAM_URL']}/send_notification"
+        headers = {"X-API-KEY": app.config['TELEGRAM_API_KEY']}
+        for klient in klients:
+            if klient.telegram_id == None : continue
+            data = {
+                "user_id": klient.telegram_id,  # ID пользователя из Telegram
+                "message": msg
+            }
+            try:
+                response = requests.post(url, json=data, headers=headers)
+                if response.status_code != 200:
+                    print(f"Ошибка отправки сообщения {data}")
+            except requests.exceptions.ConnectionError as e:
+                print(f"Ошибка подключения к Telegram Bot")   
+
+
+
     @app.route('/event/add', methods=["POST"])
     def event_add():
         if request.method == "POST":
@@ -188,11 +208,17 @@ def init_routes(app):
             event.type = request.json["type"]
             event.data = request.json["data"]
             event.datetime = request.json["datetime"]
-            klient_id = request.json["klient_id"]
+            klient_id = -1
+            if "klient_id" in request.json: 
+                klient_id = request.json["klient_id"]
             db.session.add(event)
             db.session.commit()
-            send_event_telegram(event, klient_id)
+            if klient_id == -1:
+                send_event_telegram(event)
+            else:
+                send_event_telegram(event, klient_id)
             return make_response("", 200)
+        
 
     @app.route('/login', methods=['GET', 'POST'])
     def login():
